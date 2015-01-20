@@ -1,4 +1,4 @@
-# klip
+# klip [![Build Status](https://travis-ci.org/hhatto/klip.png?branch=master)](https://travis-ci.org/hhatto/klip)
 Go Parser for Amazon Kindle's clippings.txt file.
 
 ***this module ALPHA version***
