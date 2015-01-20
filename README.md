@@ -10,7 +10,6 @@ go get github.com/hhatto/klip
 ```
 
 ## Usage
-todo...
 ```go
 package main
 
