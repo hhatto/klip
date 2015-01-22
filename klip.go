@@ -105,7 +105,7 @@ func parse(fp *os.File) (clips []KindleClipping, err error) {
 			t := regexp.MustCompile(RegexpAddedOnEN).Split(string(buf), -1)
 			if len(t) == 2 {
 				// en
-				clip.AddedOn, err = time.Parse("Monday, January 02, 2006 15:04:05 AM", string(t[1]))
+				clip.AddedOn, err = time.Parse("Monday, January 02, 2006 15:04:05 PM", string(t[1]))
 				if err != nil {
 					log.Fatalf("time.Parse error: %v", err)
 				}
