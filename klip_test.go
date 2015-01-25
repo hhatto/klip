@@ -23,7 +23,7 @@ func TestTitle(t *testing.T) {
 		t.Errorf("error occured: %v", err)
 	}
 	for i := range clips {
-		if -1 != strings.Index(clips[i].Title, "(") {
+		if -1 != strings.Index(clips[i].Author, "(") {
 			t.Errorf("invalid data")
 		}
 	}

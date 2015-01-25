@@ -72,10 +72,10 @@ func parse(fp *os.File) (clips []KindleClipping, err error) {
 			//fmt.Println(offset, lineNum, string(buf))
 			str := string(buf)
 			authorOffset := strings.LastIndex(str, " (")
-			clip.Title = str[:authorOffset-1]
+			clip.Title = str[:authorOffset]
 
 			// get author
-			clip.Author = str[authorOffset : len(str)-1]
+			clip.Author = str[authorOffset+2 : len(str)-1]
 		} else if offset == InfoLine {
 			// get type
 			if regexp.MustCompile(RegexpHighlight).Match(buf) {
