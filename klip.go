@@ -60,10 +60,6 @@ type KindleClippings []*KindleClipping
 func parse(fp *os.File) (clips []KindleClipping, err error) {
 	lineNum := 0
 	scanner := bufio.NewScanner(fp)
-	titleSplitter, err := regexp.Compile(` \(`)
-	if err != nil {
-		log.Fatalf("regexp.Complie error: %v", err)
-	}
 
 	var clip KindleClipping
 	for scanner.Scan() {
@@ -74,12 +70,12 @@ func parse(fp *os.File) (clips []KindleClipping, err error) {
 			// get title
 			clip = KindleClipping{}
 			//fmt.Println(offset, lineNum, string(buf))
-			t := titleSplitter.Split(string(buf), 5)
-			title := t[:len(t)-1]
-			clip.Title = strings.Join(title, "")
+			str := string(buf)
+			authorOffset := strings.LastIndex(str, " (")
+			clip.Title = str[:authorOffset-1]
 
 			// get author
-			clip.Author = strings.Split(t[len(t)-1], ")")[0]
+			clip.Author = str[authorOffset : len(str)-1]
 		} else if offset == InfoLine {
 			// get type
 			if regexp.MustCompile(RegexpHighlight).Match(buf) {
