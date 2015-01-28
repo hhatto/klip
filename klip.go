@@ -16,7 +16,6 @@ var RegexpHighlight = `(ハイライト|Highlight)`
 var RegexpBookmark = `(ブックマーク|Bookmark)`
 var RegexpNote = `(メモ|Note)`
 var RegexpAddedOnEN = ` \| Added on `
-var RegexpAddedOnJP = `(: |： )`
 var RegexpLocation = `([0-9]{1,})-([0-9]{1,})`
 var RegexpLocationNote = `[0-9]{1,}`
 var RegexpAddedYMD = `([0-9]{4})年([0-9]{1,2})月([0-9]{1,2})`
